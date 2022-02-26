@@ -1,0 +1,14 @@
+nav.row{
+    height: 60px ; background-color: white;
+}
+footer{
+    height: 50px; background-color: gray;
+    
+}
+.row > article{
+    min-height: 300px;
+}
+.row>aside{
+    min-height: 300px;
+    left: 12px;
+}

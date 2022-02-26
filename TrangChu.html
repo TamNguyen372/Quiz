@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" >
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/angular.min.js"></script>
+        <link rel="stylesheet" href="poly.css/layout.css">
+        <title>Trang chủ</title>
+    </head>
+
+
+    <body>
+        <div class="container" ng-app="myapp" ng-controller="myctrl">
+            <header class="row">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+                <ol class="carousel-indicators">
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="images/banner.png" class="d-block  " width="1143" height="150">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/4.jpg" class="d-block "width="1143" height="150">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/5.png" class="d-block "width="1143" height="150" >
+                  </div>
+                </div>
+                </div>
+            </header>
+
+            <nav class="row">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item active">
+                        <a class="nav-link" href="TrangChu.html"><i class="fas fa-home"> Trang chủ</i> <span class="sr-only">(current)</span></a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="GioiThieu.html"><i class="fas fa-align-justify"> Giới thiệu</i></a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="GopY.html" ><i class="fas fa-envelope"> Góp ý</i></a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="LienHe.html"><i class="fas fa-phone"> Liên hệ</i></a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="HoiDap.html"><i class="fas fa-question-circle"> Hỏi đáp</i></a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="fas fa-user"> Tài khoản</i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="DangNhap.html" target="_blank"><i class="fas fa-sign-in-alt"> Đăng nhập</i></a>
+                          <a class="dropdown-item" href="DangKi.html" target="_blank"><i class="fas fa-address-card"> Đăng ký</i></a>
+                          <a class="dropdown-item" href="#" target="_blank"><i class="fas fa-lock"> Quên mật khẩu</i></a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#" target="_blank"><i class="fas fa-sign-out-alt"> Đăng xuất</i></a>
+                          <a class="dropdown-item" href="DoiMK.html" target="_blank"><i class="fas fa-unlock"> Đổi mật khẩu</i></a>
+                          <a class="dropdown-item" href="SuaDoiTK.html" target="_blank"><i class="fas fa-user-check"> Cập nhật hồ sơ</i></a>
+                        </div>
+                      </li> &ensp;&ensp;
+                      <li class="nav-item">
+                        <a class="nav-link">{{time | date :'hh:mm:ss a'}}</a>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+              </nav>
+
+            <div class="row">
+                <article class="col-sm-9">
+                  <div class=" card-columns " ng-repeat="s in Subjects  | limitTo:4:begin">
+                    <div class="card mt-2 text-center">
+                      <img class="card-img-top w-75 mt-2" src="images/logos/{{s.Logo}}">
+                    <div class="card-body">
+                      <a href="ThiTracNghiem.html" class="card-title m-0" >{{s.Name}}</a>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="card-footer">
+                    <ul class="pager text-center bg-light">
+                        <a href="#" ng-click="first()"><i class="fas fa-fast-backward"></i></a> &ensp;                    
+                        <a href="#" ng-click="prev()"><i class="fas fa-backward"></i> </a> &ensp;  
+                        <a href="#" ng-click="next()"><i class="fas fa-forward"> </i></a> &ensp;  
+                        <a href="#" ng-click="last()"><i class="fas fa-fast-forward"> </i></a>
+                     </ul>
+                </div>
+                </article>
+            
+                <aside class="col-sm-3">
+                    <div class="card">
+                        <div class="card-header"><i class="fas fa-bars"> DANH MỤC</i></div>
+                        <div class="card-body p-0">
+                          <ul class="list-group" ng-repeat="s in Subjects">
+                            <li class="list-group-item" >{{s.Name}}</li>
+                            
+                          </ul>
+                        </div>
+                      </div>
+                  
+                </aside>
+            </div>
+
+        <footer class="row">
+            <p class="m-auto text-center text-white font-weight-bold">NGUYỄN TƯỜNG TÂM - PS09946
+            </p>
+        </footer>
+
+        </div>
+        <script src="db/Subjects.js"></script>
+        <script>
+          var app = angular.module("myapp",[]);
+          app.controller("myctrl", function ($scope, $interval){
+            $scope.time = new Date();
+              $interval(function(){
+                $scope.time = new Date();
+              }, 1000);
+
+            $scope.Subjects = list;
+            $scope.begin = 0;
+            $scope.pageCount = Math.ceil($scope.Subjects.length / 4);
+           
+            $scope.first = function () {
+            $scope.begin = 0;
+             }
+            $scope.prev = function (){
+                if($scope.begin > 0){
+                    $scope.begin -=4;
+                }
+            }
+            $scope.next = function (){
+                if($scope.begin < ($scope.pageCount -1) * 4){
+                    $scope.begin += 8;
+                }
+            }
+            $scope.last = function (){
+                $scope.begin = ($scope.pageCount -1) *4;
+            }
+        });
+        </script>
+    </body>
+
+
+   
+</html>
